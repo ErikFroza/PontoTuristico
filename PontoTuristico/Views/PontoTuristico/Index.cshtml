@@ -19,18 +19,36 @@
 
     <br />
 
-    <h2>Listagem de ponto turistico</h2>
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
 
     <br />
 
-    <table id="table-contatos" class="display" style="width:100%">
+    <h2 class="font-normal">Listagem de ponto turistico</h2>
+
+    <br />
+
+    <table id="table-pontoTuristico" class="display" style="width:100%">
         <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Descrição</th>
                 <th scope="col">Cidade/Estado</th>
-                <th scope="col">Última Alteração</th>
+                <th scope="col">Data de Cadastro</th>
                 <th scope="col"></th>
             </tr>
         </thead>
