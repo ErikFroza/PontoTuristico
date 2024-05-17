@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PontoTuristico.Models;
 using PontoTuristico.Repositorio;
+using System.Numerics;
 
 namespace PontoTuristico.Controllers
 {
@@ -20,9 +21,10 @@ namespace PontoTuristico.Controllers
             return View(pontoTuristico);
         }
 
-        public IActionResult Detalhe()
+        public IActionResult Detalhe(int id)
         {
-            return View();
+            PontoTuristicoModel pontoTuristico = _pontoTuristicoRepositorio.ListarPorId(id);
+            return View(pontoTuristico);
         }
 
         public IActionResult Criar()
@@ -30,20 +32,35 @@ namespace PontoTuristico.Controllers
             return View();
         }
 
-        public IActionResult Editar()
+        public IActionResult Editar(int id)
         {
-            return View();
+            PontoTuristicoModel pontoTuristico = _pontoTuristicoRepositorio.ListarPorId(id);
+            return View(pontoTuristico);
         }
 
-        public IActionResult ApagarConfirmacao()
+        public IActionResult ApagarConfirmacao(int id)
         {
-            return View();
+            PontoTuristicoModel pontoTuristico = _pontoTuristicoRepositorio.ListarPorId(id);
+            return View(pontoTuristico);
+        }
+
+        public IActionResult Apagar(int id)
+        {
+            _pontoTuristicoRepositorio.Apagar(id);
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
         public IActionResult Criar(PontoTuristicoModel pontoTuristico)
         {
             _pontoTuristicoRepositorio.Adicionar(pontoTuristico);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Alterar(PontoTuristicoModel pontoTuristico)
+        {
+            _pontoTuristicoRepositorio.Atualizar(pontoTuristico);
             return RedirectToAction("Index");
         }
     }

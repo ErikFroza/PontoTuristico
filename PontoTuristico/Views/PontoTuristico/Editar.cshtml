@@ -1,5 +1,87 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using PontoTuristico.Enums
+@model PontoTuristicoModel;
 @{
+    ViewData["Title"] = "Editar Ponto Turistico";
 }
+
+<div class="row">
+    <div class="col-md-8">
+        <img height="50px" width="auto" src="https://i.imgur.com/KKWPjXF.png" />
+    </div>
+    <div class="col-md-4">
+        <h3>Editar Ponto Turistico</h3>
+    </div>
+</div>
+
+<br />
+
+<form asp-controller="PontoTuristico" asp-action="Alterar" method="post">
+
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome do ponto turistico">
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-3">
+                <label for="cep" class="form-label">CEP</label>
+                <input type="text" asp-for="Cep" class="form-control" placeholder="Digite o CEP desejado">
+            </div>
+            <div class="col-md-2">
+                <label for="estado" class="form-label">Estado</label>
+                <select asp-for="Estado" class="form-control">
+                    <option value="0">Selecione</option>
+                    <option value="@EstadoEnum.AC">AC</option>
+                    <option value="@EstadoEnum.AL">AL</option>
+                    <option value="@EstadoEnum.AP">AP</option>
+                    <option value="@EstadoEnum.AM">AM</option>
+                    <option value="@EstadoEnum.BA">BA</option>
+                    <option value="@EstadoEnum.CE">CE</option>
+                    <option value="@EstadoEnum.DF">DF</option>
+                    <option value="@EstadoEnum.ES">ES</option>
+                    <option value="@EstadoEnum.GO">GO</option>
+                    <option value="@EstadoEnum.MA">MA</option>
+                    <option value="@EstadoEnum.MT">MT</option>
+                    <option value="@EstadoEnum.MS">MS</option>
+                    <option value="@EstadoEnum.MG">MG</option>
+                    <option value="@EstadoEnum.PA">PA</option>
+                    <option value="@EstadoEnum.PB">PB</option>
+                    <option value="@EstadoEnum.PR">PR</option>
+                    <option value="@EstadoEnum.PE">PE</option>
+                    <option value="@EstadoEnum.PI">PI</option>
+                    <option value="@EstadoEnum.RJ">RJ</option>
+                    <option value="@EstadoEnum.RN">RN</option>
+                    <option value="@EstadoEnum.RS">RS</option>
+                    <option value="@EstadoEnum.RO">RO</option>
+                    <option value="@EstadoEnum.RR">RR</option>
+                    <option value="@EstadoEnum.SC">SC</option>
+                    <option value="@EstadoEnum.SP">SP</option>
+                    <option value="@EstadoEnum.SE">SE</option>
+                    <option value="@EstadoEnum.TO">TO</option>
+                </select>
+            </div>
+            <div class="col-md-7">
+                <label for="cidade" class="form-label">Cidade</label>
+                <input type="text" asp-for="Cidade" class="form-control" placeholder="Digite a cidade">
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="referencia" class="form-label">Referência</label>
+        <input type="text" asp-for="Referencia" class="form-control" placeholder="Digite a referência">
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="descricao" class="form-label">Descrição</label>
+        <textarea asp-for="Descricao" class="form-control" rows="3" placeholder="Digite a descrição do ponto turistico..."></textarea>
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+    <a class="btn btn-secondary btn-block" asp-action="Index" asp-controller="PontoTuristico" role="button">Voltar</a>
+
+</form>
