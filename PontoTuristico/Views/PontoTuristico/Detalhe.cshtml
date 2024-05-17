@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <img height="50px" width="auto" src="https://i.imgur.com/KKWPjXF.png" />
+        <a asp-action="Index" asp-controller="PontoTuristico" class="btn-img"><img height="50px" width="auto" src="https://i.imgur.com/KKWPjXF.png" /></a>
     </div>
 </div>
 
@@ -26,7 +26,7 @@
     <p><b>Ponto de Referência:</b> @Model.Referencia</p>
     <p><b>Descrição:</b> @Model.Descricao</p>
     <p><b>Data de Criação:</b> @Model.DataCadastro</p>
-    <p><b>Data de Alteração:</b> @if (@Model.DataAtualizacao == null) { <span>Ainda não houve alterações.</span> } else { <span>@Model.DataAtualizacao</span> }</p>
+    <p><b>Data da Última Alteração:</b> @if (@Model.DataAtualizacao == null) { <span>Ainda não houve alterações.</span> } else { <span>@Model.DataAtualizacao</span> }</p>
 
     <br />
     <a class="btn btn-secondary btn-block" asp-action="Index" asp-controller="PontoTuristico" role="button">Voltar</a>

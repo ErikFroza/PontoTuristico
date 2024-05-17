@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-md-8">
-        <img height="50px" width="auto" src="https://i.imgur.com/KKWPjXF.png" />
+        <a asp-action="Index" asp-controller="PontoTuristico" class="btn-img"><img height="50px" width="auto" src="https://i.imgur.com/KKWPjXF.png" /></a>
     </div>
     <div class="col-md-4">
         <h3 class="font-normal">Cadastrar Ponto Turistico</h3>
@@ -27,12 +27,12 @@
         <div class="row">
             <div class="col-md-3">
                 <label for="cep" class="form-label">CEP</label>
-                <input type="text" asp-for="Cep" class="form-control" placeholder="Digite o CEP desejado">
+                <input type="text" id="cep" asp-for="Cep" class="form-control" placeholder="Digite o CEP desejado">
                 @Html.ValidationMessageFor(x => x.Cep)
             </div>
             <div class="col-md-2">
                 <label for="estado" class="form-label">Estado</label>
-                <select asp-for="Estado" class="form-control">
+                <select asp-for="Estado" id="estado" class="form-control">
                     <option value="">Selecione</option>
                     <option value="@EstadoEnum.AC">AC</option>
                     <option value="@EstadoEnum.AL">AL</option>
@@ -66,7 +66,7 @@
             </div>
             <div class="col-md-7">
                 <label for="cidade" class="form-label">Cidade</label>
-                <input type="text" asp-for="Cidade" class="form-control" placeholder="Digite a cidade">
+                <input type="text" id="cidade" asp-for="Cidade" class="form-control" placeholder="Digite a cidade">
                 @Html.ValidationMessageFor(x => x.Cidade)
             </div>
         </div>
@@ -74,7 +74,7 @@
     <br />
     <div class="form-group">
         <label for="referencia" class="form-label">Referência</label>
-        <input type="text" asp-for="Referencia" class="form-control" placeholder="Digite a referência">
+        <input type="text" id="referencia" asp-for="Referencia" class="form-control" placeholder="Digite a referência">
         @Html.ValidationMessageFor(x => x.Referencia)
     </div>
     <br />
