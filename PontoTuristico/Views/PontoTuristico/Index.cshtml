@@ -1,0 +1,61 @@
+﻿@model List<PontoTuristicoModel>
+@{
+    ViewData["Title"] = "Listagem de Ponto Turistico";
+}
+
+
+<div class="row">
+    <div class="col-md-9">
+        <img height="50px" width="auto" src="https://i.imgur.com/KKWPjXF.png" />
+    </div>
+    <div class="col-md-3">
+        <a class="btn btn-primary" asp-controller="PontoTuristico" asp-action="Criar" role="button">Cadastrar Ponto Turistico</a>
+    </div>
+</div>
+    
+<br />
+
+<div class="text-center">
+
+    <br />
+
+    <h2>Listagem de ponto turistico</h2>
+
+    <br />
+
+    <table id="table-contatos" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Cidade/Estado</th>
+                <th scope="col">Última Alteração</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (PontoTuristicoModel pontoTuristico in Model)
+                {
+                    <tr>
+                        <th scope="row">@pontoTuristico.Id</th>
+                        <td>@pontoTuristico.Nome</td>
+                        <td>@pontoTuristico.Descricao</td>
+                        <td>@pontoTuristico.Cidade/@pontoTuristico.Estado</td>
+                        <td>@pontoTuristico.DataCadastro</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" asp-action="Detalhe" asp-controller="PontoTuristico" asp-route-id="@pontoTuristico.Id" class="btn btn-success">Detalhes</a>
+                                <a role="button" asp-action="Editar" asp-controller="PontoTuristico" asp-route-id="@pontoTuristico.Id" class="btn btn-primary">Editar</a>
+                                <a role="button" asp-action="ApagarConfirmacao" asp-controller="PontoTuristico" asp-route-id="@pontoTuristico.Id" class="btn btn-danger">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+</div>
