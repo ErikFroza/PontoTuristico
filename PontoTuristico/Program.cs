@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<BancoContext>
-    (options => options.UseSqlServer("Data Source=NOT-ERIK;Initial Catalog=BD_SistemaPontoTuristico;User ID=sa;Password=123456;Encrypt=False"));
+    (options => options.UseSqlServer("Data Source=NOT-ERIK;Initial Catalog=BD_SistemaPontoTuristico;User ID=sa;Password=;Encrypt=False"));
 builder.Services.AddScoped<IPontoTuristicoRepositorio, PontoTuristicoRepositorio>();
 
 var app = builder.Build();
